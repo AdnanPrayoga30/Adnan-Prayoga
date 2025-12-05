@@ -1,4 +1,39 @@
 document.addEventListener('DOMContentLoaded', () => {
+    // Initialize LiquidEther on Hero Section
+    const heroSection = document.querySelector('.hero-section');
+    if (heroSection && window.LiquidEtherBackground) {
+        new window.LiquidEtherBackground(heroSection, {
+            colors: ['#5227FF', '#FF9FFC', '#B19EEF'],
+            mouseForce: 20,
+            cursorSize: 100,
+            viscous: 30,
+            autoDemo: true,
+            autoSpeed: 0.5,
+            autoIntensity: 2.2
+        });
+    }
+
+    // Add animated backgrounds to other sections
+    const aboutSection = document.querySelector('.about-section');
+    if (aboutSection && window.ParticleSwarmBackground) {
+        new window.ParticleSwarmBackground(aboutSection, ['#5227FF', '#B19EEF', '#FF9FFC']);
+    }
+
+    const portfolioSection = document.querySelector('.portfolio-section');
+    if (portfolioSection && window.AnimatedGradientBackground) {
+        new window.AnimatedGradientBackground(portfolioSection, ['#2d1b4e', '#5227FF', '#9d4edd']);
+    }
+
+    const skillsSection = document.querySelector('.skills-section');
+    if (skillsSection && window.ParticleSwarmBackground) {
+        new window.ParticleSwarmBackground(skillsSection, ['#7209b7', '#3a0ca3', '#560bad']);
+    }
+
+    const contactSection = document.querySelector('.contact-section');
+    if (contactSection && window.AnimatedGradientBackground) {
+        new window.AnimatedGradientBackground(contactSection, ['#5227FF', '#B19EEF', '#FF9FFC']);
+    }
+
     // 1. Custom Cursor
     const customCursor = document.getElementById('custom-cursor');
     const interactiveElements = 'a, button, input, textarea, .project-card, .skill-badge';
@@ -71,15 +106,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
     scrollRevealElements.forEach(el => observer.observe(el));
 
-    // 4. Contact Form CTA Button Animation (Active state via CSS, but JS for click feedback)
+    // 4. Contact Form CTA Button Animation
     const ctaButton = document.querySelector('.cta-button');
     if (ctaButton) {
         ctaButton.addEventListener('click', (e) => {
-            // Prevent default form submission for demonstration
-            e.preventDefault();
-            console.log('Form submission simulated!');
-            // Add a temporary class for visual feedback if needed, beyond :active
-            // For a real form, this would trigger an actual submission or validation
+            console.log('Form submission initiated!');
         });
     }
 
